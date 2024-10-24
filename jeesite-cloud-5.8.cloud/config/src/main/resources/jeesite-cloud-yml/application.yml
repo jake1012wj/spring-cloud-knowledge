@@ -1,0 +1,498 @@
+
+#======================================#
+#========== Project settings ==========#
+#======================================#
+
+# 产品或项目名称、软件开发公司名称
+productName: JeeSite Cloud
+companyName: ThinkGem
+
+# 产品版本、版权年份
+productVersion: V5.8
+copyrightYear: 2024
+
+# 是否演示模式
+demoMode: false
+
+#======================================#
+#========== Server settings ===========#
+#======================================#
+
+server:
+
+  servlet:
+    context-path: /js
+    register-default-servlet: false
+#    encoding.enabled: true
+  tomcat:
+    uri-encoding: UTF-8
+    
+#======================================#
+#========== Cloud settings ============#
+#======================================#
+
+# 服务注册
+eureka:
+
+  # 实例设置
+  instance:
+    # 实例状态监控参数
+    homePageUrl: ${server.servlet.context-path}
+    statusPageUrlPath: ${server.servlet.context-path}/actuator
+    healthCheckUrlPath: ${server.servlet.context-path}/actuator/health
+    
+  # 从服务器注册表中获取注册信息的时间间隔（秒）
+  client:
+    registryFetchIntervalSeconds: 5
+    
+# 声明式服务
+feign:
+
+  # 开启okhttp客户端
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+    
+  # 容错限流断路器（2020.0+ 替换为 sentinel）
+  hystrix:
+    enabled: false
+  sentinel:
+    enabled: true
+    
+  # 请求和响应 GZIP 压缩支持
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+
+  # 调试模式
+  debug: false
+
+# 启用负载均衡（2020.0+ 替换为 loadbalancer）
+#ribbon:
+#  eureka:
+#    enabled: true
+#  ReadTimeout: 60000
+#  ConnectTimeout: 60000
+#  OkToRetryOnAllOperations: false
+#  MaxAutoRetriesNextServer: 0
+#  MaxAutoRetries: 0
+
+# 延迟容错机制（2020.0+ 替换为 sentinel）
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          # 隔离策略（THREAD、SEMAPHORE）
+#          strategy: THREAD
+#          # 线程超时时间（毫秒）
+#          thread:
+#            timeoutInMilliseconds: 60000
+
+# 微服务列表
+service:
+  core:
+    name: jeesite-cloud-module-core
+    path: ${server.servlet.context-path}
+  test1:
+    name: jeesite-cloud-module-test1
+    path: ${server.servlet.context-path}
+  test2:
+    name: jeesite-cloud-module-test2
+    path: ${server.servlet.context-path}
+  test3:
+    name: jeesite-cloud-module-test3
+    path: ${server.servlet.context-path}
+  bpm:
+    name: jeesite-cloud-module-bpm
+    path: ${server.servlet.context-path}
+  
+#======================================#
+#========== Database sttings ==========#
+#======================================#
+
+# 数据库连接
+jdbc: 
+  
+  # Mysql 数据库配置
+  type: mysql
+  driver: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/jeesite_v5?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+  username: root
+  password: Wj!@#1012
+  testSql: SELECT 1
+
+#  # Oracle 数据库配置（11g，若使用 12c 以上版本，请打开 /modules/core/pom.xml 文件，替换为 Oracle 12c 驱动并编译打包 core 模块）
+#  type: oracle
+#  driver: oracle.jdbc.OracleDriver
+#  url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+#  username: jeesite
+#  password: jeesite
+#  testSql: SELECT 1 FROM DUAL
+
+#  # Sql Server 数据库配置（2008 版本，请打开 /modules/core/pom.xml 文件，替换为 SqlServer 2008 驱动并编译打包 core 模块）
+#  type: mssql
+#  driver: net.sourceforge.jtds.jdbc.Driver
+#  url: jdbc:jtds:sqlserver://127.0.0.1:1433/jeesite
+#  username: jeesite
+#  password: jeesite
+#  testSql: SELECT 1
+
+#  # Sql Server 数据库配置（2012 及以上版本，请打开 /modules/core/pom.xml 文件，替换为 SqlServer 2021 驱动并编译打包 core 模块）
+#  type: mssql2012
+#  driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#  url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=jeesite;encrypt=true;trustServerCertificate=true
+#  username: jeesite
+#  password: jeesite
+#  testSql: SELECT 1
+
+#  # PostgreSql 数据库配置
+#  type: postgresql
+#  driver: org.postgresql.Driver
+#  url: jdbc:postgresql://127.0.0.1:5432/jeesite
+#  username: jeesite
+#  password: jeesite
+#  testSql: SELECT 1
+
+#  # H2 数据库配置（请打开 /modules/core/pom.xml 文件，打开 H2 DB 驱动并编译打包 core 模块）
+#  type: h2
+#  driver: org.h2.Driver
+#  url: jdbc:h2:~/jeesite-db/jeesite
+#  username: jeesite
+#  password: jeesite
+#  testSql: SELECT 1
+
+  # 数据库连接池配置
+  pool:
+  
+    # 初始化连接数
+    init: 1
+    # 最小连接数
+    minIdle: 3
+    # 最大连接数
+    maxActive: 20
+
+#  # 读写分离配置（专业版）v4.3.0
+#  readwriteSplitting:
+#    # 读库的数据源名称列表（默认数据源）
+#    readDataSourceNames: ds_read_01, ds_read_02
+#    # 负载均衡算法（ROUND_ROBIN轮询、RANDOM随机、自定义类名）
+#    loadBalancerAlgorithm: RANDOM
+
+#  # 多数据源名称列表，多个用逗号隔开，使用方法：@MyBatisDao(dataSourceName="ds2")
+#  dataSourceNames: ds_read_01, ds_read_02, ds2
+#  dataSourceNames: ds2
+  
+#  # 默认数据源的从库01
+#  ds_read_01:
+#    type: mysql
+#    driver: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/jeesite_test?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
+#    testSql: SELECT 1
+#    pool:
+#      init: 1
+#      minIdle: 3
+#      maxActive: 20
+#  
+#  # 默认数据源的从库02
+#  ds_read_02:
+#    type: mysql
+#    driver: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/jeesite_test2?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
+#    testSql: SELECT 1
+#    pool:
+#      init: 1
+#      minIdle: 3
+#      maxActive: 20
+  
+#  # 多数据源配置：ds2
+#  ds2:
+#    type: mysql
+#    driver: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/jeesite2?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
+#    testSql: SELECT 1
+#    # 其它数据源支持密码加密
+#    encrypt:
+#      username: false
+#      password: true
+#    # 其它数据源支持连接池设置
+#    pool:
+#      init: 1
+#      minIdle: 3
+#      maxActive: 20
+#    # 其它数据源支持读写分离
+#    readwriteSplitting:
+#      readDataSourceNames: ~
+#      loadBalancerAlgorithm: RANDOM
+
+#  # 数据源映射（Dao类名 = 数据源名称），优先于 @MyBatisDao(dataSourceName="ds2") 设置 v4.3.0
+#  # Dao类名，不仅支持某个具体 Dao类名，还支持 Dao 里的某个方法指定数据源名称，还支持包路径指定数据源等
+#  # 数据源名指定 {dynamic} 时支持动态，相当于 @MyBatisDao(dataSourceName=DataSourceHolder.DYNAMIC)
+#  # 数据源支持指定变量 {corpCode}、 {userCode}、{userCache中的Key名}、{yml或sys_config中的Key名}
+#  # 从上到下，先匹配先受用规则，默认数据源名为 default 扩展数据源为 dataSourceNames 列表里自定义的名字
+#  mybatisDaoAndDataSourceMappings: |
+#    TestDataChildDao = ds2
+#    EmpUserDao.findList = ds2
+#    com.jeesite.modules.sys. = default
+#    com.jeesite.modules.filemanager. = ds2
+
+  # JTA XA 事务
+  jta:
+    enabled: false
+    
+  # 事务超时时间，单位秒（30分钟）（v4.1.5+）
+  transactionTimeout: 1800
+
+# Seata 分布式事务
+seata:
+  enabled: false
+  application-id: ${spring.application.name}
+  tx-service-group: default_tx_group
+  service:
+    vgroup-mapping:
+      default_tx_group: default
+  client:
+    undo:
+      log-serialization: jackson
+  registry:
+    type: nacos
+    #preferred-networks: 192.168.*
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      namespace: ~
+      group : SEATA_GROUP
+
+#======================================#
+#========== Spring settings ===========#
+#======================================#
+
+spring:
+  
+  # 当前环境名称（注意：不可设置为 test 它是单元测试专用的名称）
+  profiles:
+    active: default
+    
+  # MVC 映射匹配策略
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+  # Feign 序列化时区
+  jackson:
+    time-zone: GMT+8
+      
+  # Consul 服务发现
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: ${server.servlet.context-path}/actuator/health
+        healthCheckInterval: 15s
+        
+    # 流量防卫兵
+    sentinel:
+      transport:
+        port: 9311
+        dashboard: 127.0.0.1:9311
+      # 更改 csp 日志位置
+      log:
+        dir: ${user.home}/logs/csp
+        switch-pid: true
+      # 流量防卫兵 Nacos 数据源：https://github.com/alibaba/Sentinel/wiki/动态规则扩展
+      datasource:
+        ds2.nacos:
+          server-addr: 127.0.0.1:8848
+          username: nacos
+          password: nacos
+          namespace: ~
+          data-id: ${spring.application.name}-sentinel
+          group-id: jeesite-cloud-yml
+          rule-type: flow
+  
+  # Spring Boot Admin 服务监控中心：https://codecentric.github.io/spring-boot-admin/2.0.6
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9511
+        instance:
+          prefer-ip: true
+          management:
+            context-path: ${server.servlet.context-path}
+        
+  # Zipkin 服务链路追踪
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    
+  # Redis 连接参数 （RedisProperties）
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    ssl: false
+    database: 0
+    password:
+    timeout: 2000
+    lettuce:
+      pool:
+        # 最大空闲连接数
+        maxIdle: 3
+        # 最大活动连接数
+        maxActive: 20
+
+  # 缓存配置
+  cache:
+    # 缓存及会话共享（专业版）
+    isClusterMode: true
+    # 清理全部缓存按钮所清理的缓存列表
+    clearNames: sysCache,corpCache,userCache,cmsCache
+  
+  # 消息队列服务
+#  rabbitmq:
+#    host: 192.168.11.103
+#    port: 8976
+#    username: admin
+#    password: admin123
+
+# 日志配置
+logging:
+  level:
+    root: warn
+    com.codingapi.txlcn: debug
+
+#======================================#
+#========== System settings ===========#
+#======================================#
+
+# 管理基础路径
+adminPath: /a
+
+# 用户相关
+user:
+  # 多租户模式（SAAS模式）（专业版）
+  useCorpModel: false
+  
+# 菜单管理
+menu:
+  # 根据模块状态去更新相连的菜单状态（仅作为微服务时设为false）
+  updateStatusByModuleStatus: false
+
+# 国际化管理（专业版+）
+lang:
+  enabled: false
+  
+# 任务调度（个人版+）
+job:
+  enabled: false
+
+  # 调度设置，集群中每一个实例都必须使用相同的instanceName名称 （区分特定的调度器实例）
+  # 在微服务模式情况下，请将instanceName名称设置为当前微服务的名称
+  # 每一个instanceId必须不同，设置AUTO则自动生成
+  scheduler:
+    instanceName: ${spring.application.name}
+    instanceId: AUTO
+
+#======================================#
+#========= Framework settings =========#
+#======================================#
+
+# Shiro 相关配置
+shiro:
+
+  # 登录提交信息加密（如果不需要加密，设置为空即可）
+  loginSubmit:
+    
+    # 登录提交信息安全Key，加密用户名、密码、验证码，后再提交（key设置为3个，用逗号分隔）
+    secretKey: Base64
+  
+  # 关闭各自微服务的跨域设置，因为已经在 GatewayCorsFilter 类里全局启用跨域，如果不想跨域，可删除该类
+  accessControlAllowOrigin: ~
+  
+  # 内部系统访问过滤器，可设置多个允许的内部系统IP地址串，多个用逗号隔开，完整的IP使用“]”符号结尾
+  innerFilterAllowRemoteAddrs: 127.0.0.1],10.,172.,192.
+  
+  # URI 权限过滤器定义
+  filterChainDefinitions: |
+    /inner/api/** = inner
+    /api/** = user
+    ${adminPath}/** = user
+  
+# MyBatis 相关
+mybatis:
+
+  # @MyBatisDao 扫描基础包，如果多个，用“,”分隔
+  scanBasePackage: com.jeesite.modules.**.dao
+
+  # TypeAliases 扫描基础包，如果多个，用“,”分隔 v5.3.1
+  scanTypeAliasesBasePackage: com.jeesite.modules.**.entity
+  
+# Web 相关
+web:
+  
+  # 核心模块的Web功能开启（其它微服务时设为false）
+  core: 
+    enabled: false
+
+# Session 相关
+session:
+
+  # 全局会话超时，单位：毫秒， 20m=1200000ms, 30m=1800000ms, 60m=3600000ms, 12h=43200000ms, 1day=86400000ms
+  # 注意：如果超时超过30m，你还需要同步修改 j2cache.properties 文件的 caffeine.region.sessionCache 超时时间，大于这个值。
+  sessionTimeout: 1800000
+  
+  # 手机APP设备会话超时参数设置，登录请求参数加 param_deviceType=mobileApp 时有效
+  mobileAppSessionTimeout: 43200000
+  
+  # 定时清理失效会话，清理用户直接关闭浏览器造成的孤立会话（仅 Core 基础微服务开启会话清理，其余微服务关闭）
+  sessionTimeoutClean: 0
+  
+  # 会话唯一标识SessionId在Cookie中的名称。
+  sessionIdCookieName: jeesite.session.id
+  sessionIdCookiePath: ${server.servlet.context-path}
+  
+# 错误页面500.html是否输出错误信息（正式环境，为提供安全性可设置为false）
+error:
+  page:
+    printErrorInfo: true
+
+#======================================#
+#========= Message settings ===========#
+#======================================#
+
+# 消息服务
+msg:
+  enabled: false
+
+  # 消息客户端服务
+  client:
+    enabled: true
+
+#======================================#
+#======== FileUpload settings =========#
+#======================================#
+
+# 文件服务
+file:
+  enabled: true
+
+  # 文件客户端服务
+  client:
+    enabled: true
+
+  # 文件上传根路径，设置路径中不允许包含“userfiles”，在指定目录中系统会自动创建userfiles目录，如果不设置默认为contextPath路径
+#  baseDir: D:/jeesite
+
+#======================================#
+#========== Project settings ==========#
+#======================================#
