@@ -13,7 +13,7 @@ import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 public class ElasticsearchConfig {
 
     @Bean
-    public RestHighLevelClient client() {
+    public RestHighLevelClient restHighLevelClient() {
 //        return RestClients.create(ClientConfiguration.create("http://127.0.0.1:9200")).rest(); // 根据实际情况配置
         return new RestHighLevelClient(
                 RestClient.builder(new HttpHost("localhost", 9200, "http")));
@@ -21,6 +21,6 @@ public class ElasticsearchConfig {
 
     @Bean
     public ElasticsearchRestTemplate elasticsearchTemplate() {
-        return new ElasticsearchRestTemplate(client());
+        return new ElasticsearchRestTemplate(restHighLevelClient());
     }
 }

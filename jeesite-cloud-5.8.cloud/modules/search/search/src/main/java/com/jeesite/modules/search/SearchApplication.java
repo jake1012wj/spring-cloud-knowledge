@@ -18,13 +18,9 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
         RedisRepositoriesAutoConfiguration.class})
 @EnableOpenApi
 @EnableDiscoveryClient
-@EnableFeignClients("com.jeesite.modules.search.commons.feign")
+@EnableFeignClients("com.jeesite.modules.search.feign")
 @ComponentScan(basePackages = {
-        "com.jeesite.modules.search.config",
-        "com.jeesite.modules.search.commons.config.feign",
-        "com.jeesite.modules.search.commons.handler",
-        "com.jeesite.modules.search.utils",
-        "com.jeesite.modules.search.search"
+        "com.jeesite.modules.search"
 })
 public class SearchApplication {
     public static void main(String[] args) {
