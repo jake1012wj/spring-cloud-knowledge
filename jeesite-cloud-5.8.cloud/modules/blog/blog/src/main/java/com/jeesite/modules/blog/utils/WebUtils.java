@@ -1,6 +1,7 @@
 package com.jeesite.modules.blog.utils;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.regex.Pattern;
  */
 
 public class WebUtils {
-
+    private static Logger log = LoggerFactory.getLogger(WebUtils.class);
     // 一级域名
     private static final String RE_TOP = "(\\w*\\.?){1}\\.(com.cn|net.cn|gov.cn|org\\.nz|org.cn|com|net|org|gov|cc|biz|info|cn|co)$";
 

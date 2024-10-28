@@ -1,11 +1,12 @@
 package com.jeesite.modules.blog.web.config;
 
+import com.jeesite.modules.blog.base.global.Constants;
 import com.jeesite.modules.blog.utils.JsonUtils;
 import com.jeesite.modules.blog.utils.StringUtils;
 import com.jeesite.modules.blog.web.global.RedisConf;
 import com.jeesite.modules.blog.web.global.SysConf;
-import com.jeesite.modules.blog.base.global.Constants;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,7 @@ import java.util.Map;
 @Component
 
 public class AuthenticationTokenFilter extends OncePerRequestFilter {
-
+    private static Logger log = LoggerFactory.getLogger(AuthenticationTokenFilter.class);
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 

@@ -4,7 +4,8 @@ import com.jeesite.modules.blog.utils.Arith;
 import com.jeesite.modules.blog.utils.DateUtils;
 import com.jeesite.modules.blog.utils.IpUtils;
 import com.openhtmltopdf.util.Util;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;
@@ -28,6 +29,7 @@ import java.util.Properties;
  */
 
 public class ServerInfo {
+    private static Logger log = LoggerFactory.getLogger(ServerInfo.class);
     private static final int OSHI_WAIT_SECOND = 1000;
 
     /**

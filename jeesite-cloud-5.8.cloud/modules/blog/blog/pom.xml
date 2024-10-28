@@ -142,6 +142,12 @@
 			<groupId>us.codecraft</groupId>
 			<artifactId>webmagic-extension</artifactId>
 			<version>0.7.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-reload4j</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -209,7 +215,7 @@
 		<dependency>
 			<groupId>org.elasticsearch.client</groupId>
 			<artifactId>elasticsearch-rest-high-level-client</artifactId>
-			<version>7.17.25</version> <!-- 替换为你需要的具体版本 -->
+			<version>7.17.9</version> <!-- 替换为你需要的具体版本 -->
 		</dependency>
 
 

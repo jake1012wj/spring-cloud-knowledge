@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/blog/blog-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/blog/blog/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/core/core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/core/files/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/test1/test1-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/test1/test1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/test2/test2-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/test2/test2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/test3/test3-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/modules/test3/test3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/nacos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/parent/web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/sentinel/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeesite-cloud-5.8.cloud/zipkin/src/main/java" charset="UTF-8" />
+  </component>
+</project>

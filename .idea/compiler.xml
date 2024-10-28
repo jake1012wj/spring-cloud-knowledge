@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jeesite-cloud-module-test3-client" />
+        <module name="jeesite-cloud-module-test3-web" />
+        <module name="jeesite-cloud-module-test1-client" />
+        <module name="jeesite-cloud-zipkin" />
+        <module name="jeesite-cloud-module-test1-web" />
+        <module name="jeesite-cloud-sentinel" />
+        <module name="jeesite-cloud-module-test2-client" />
+        <module name="jeesite-cloud-nacos" />
+        <module name="jeesite-cloud-config" />
+        <module name="jeesite-cloud-module-files-web" />
+        <module name="jeesite-cloud-module-test2-web" />
+        <module name="jeesite-cloud-module-blog-client" />
+        <module name="jeesite-cloud-module-core-web" />
+        <module name="jeesite-cloud-gateway" />
+        <module name="jeesite-cloud-eureka" />
+        <module name="jeesite-cloud-module-blog-web" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jeesite-cloud-config" options="-parameters" />
+      <module name="jeesite-cloud-eureka" options="-parameters" />
+      <module name="jeesite-cloud-gateway" options="-parameters" />
+      <module name="jeesite-cloud-module-blog-client" options="-parameters" />
+      <module name="jeesite-cloud-module-blog-web" options="-parameters" />
+      <module name="jeesite-cloud-module-core-web" options="-parameters" />
+      <module name="jeesite-cloud-module-files-web" options="-parameters" />
+      <module name="jeesite-cloud-module-test1-client" options="-parameters" />
+      <module name="jeesite-cloud-module-test1-web" options="-parameters" />
+      <module name="jeesite-cloud-module-test2-client" options="-parameters" />
+      <module name="jeesite-cloud-module-test2-web" options="-parameters" />
+      <module name="jeesite-cloud-module-test3-client" options="-parameters" />
+      <module name="jeesite-cloud-module-test3-web" options="-parameters" />
+      <module name="jeesite-cloud-nacos" options="-parameters" />
+      <module name="jeesite-cloud-parent" options="-parameters" />
+      <module name="jeesite-cloud-parent-web" options="-parameters" />
+      <module name="jeesite-cloud-sentinel" options="-parameters" />
+      <module name="jeesite-cloud-zipkin" options="-parameters" />
+    </option>
+  </component>
+</project>

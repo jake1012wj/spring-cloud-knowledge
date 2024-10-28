@@ -1,18 +1,19 @@
 package com.jeesite.modules.blog.web.annotion.log;
 
+import com.jeesite.modules.blog.base.enums.EBehavior;
+import com.jeesite.modules.blog.base.holder.RequestHolder;
+import com.jeesite.modules.blog.base.util.RequestUtil;
 import com.jeesite.modules.blog.utils.AopUtils;
 import com.jeesite.modules.blog.utils.AspectUtil;
 import com.jeesite.modules.blog.utils.IpUtils;
 import com.jeesite.modules.blog.utils.RedisUtil;
 import com.jeesite.modules.blog.web.global.SysConf;
-import com.jeesite.modules.blog.base.enums.EBehavior;
-import com.jeesite.modules.blog.base.holder.RequestHolder;
-import com.jeesite.modules.blog.base.util.RequestUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ import java.util.Map;
 @Component("WebLoggerAspect")
 
 public class LoggerAspect {
-
+    private static Logger log = LoggerFactory.getLogger(LoggerAspect.class);
     @Autowired
     ThreadPoolTaskExecutor threadPoolTaskExecutor;
 

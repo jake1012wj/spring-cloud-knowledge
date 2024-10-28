@@ -1,7 +1,8 @@
 package com.jeesite.modules.blog.utils;
 
-import lombok.extern.slf4j.Slf4j;
 import org.lionsoul.ip2region.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,7 @@ import java.util.regex.Pattern;
  */
 
 public class IpUtils {
-
+    private static Logger log = LoggerFactory.getLogger(IpUtils.class);
 	static String dbPath;
     static DbConfig config;
     static DbSearcher searcher;

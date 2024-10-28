@@ -1,16 +1,17 @@
 package com.jeesite.modules.blog.web.annotion.requestLimit;
 
+import com.jeesite.modules.blog.base.global.ECode;
 import com.jeesite.modules.blog.utils.AspectUtil;
 import com.jeesite.modules.blog.utils.IpUtils;
 import com.jeesite.modules.blog.utils.RedisUtil;
 import com.jeesite.modules.blog.utils.ResultUtil;
 import com.jeesite.modules.blog.web.global.RedisConf;
-import com.jeesite.modules.blog.base.global.ECode;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 
 public class RequestLimitAspect {
-
+    private static Logger log = LoggerFactory.getLogger(RequestLimitAspect.class);
     private final String POINT = "execution(* com.jeesite.modules.blog.web.restapi..*.*(..))";
     @Autowired
     private RedisUtil redisUtil;

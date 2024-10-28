@@ -1,6 +1,7 @@
 package com.jeesite.modules.blog.utils;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,7 +18,7 @@ import java.util.regex.Pattern;
  */
 
 public class StringUtils {
-
+    private static Logger log = LoggerFactory.getLogger(StringUtils.class);
     private final static int NUM_32 = 32;
     //集群号
     private static int machineId = 1;

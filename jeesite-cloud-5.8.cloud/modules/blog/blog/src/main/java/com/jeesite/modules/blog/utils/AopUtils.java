@@ -9,6 +9,8 @@ import org.apache.ibatis.javassist.bytecode.MethodInfo;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletRequest;
@@ -24,7 +26,7 @@ import java.util.Map;
  */
 
 public class AopUtils {
-
+    private static Logger log = LoggerFactory.getLogger(AopUtils.class);
     /**
      * 获取AOP代理的方法的参数名称和参数值
      *
