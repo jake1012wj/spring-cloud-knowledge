@@ -12,6 +12,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @description: RestApi参数校验异常处理
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date: 2019年12月4日22:48:18
  */
 @ControllerAdvice
-
+@RestController
 public class RestExceptionHandler {
     private static Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 

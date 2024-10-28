@@ -5,10 +5,10 @@ import com.jeesite.modules.blog.commons.entity.Tag;
 import com.jeesite.modules.blog.search.global.SysConf;
 import com.jeesite.modules.blog.search.pojo.ESBlogIndex;
 import com.jeesite.modules.blog.search.repository.BlogRepository;
-import com.jeesite.modules.blog.search.utils.EntityMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.index.query.QueryStringQueryBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
@@ -17,7 +17,6 @@ import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +31,7 @@ import java.util.Map;
 
 @Service
 public class ElasticSearchService {
+    private static Logger log = LoggerFactory.getLogger(ElasticSearchService.class);
 
     @Autowired
     ElasticsearchRestTemplate elasticsearchTemplate;

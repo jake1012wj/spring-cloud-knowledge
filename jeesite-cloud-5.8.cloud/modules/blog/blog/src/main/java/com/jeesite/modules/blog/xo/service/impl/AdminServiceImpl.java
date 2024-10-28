@@ -6,6 +6,10 @@ import cn.hutool.core.util.CharsetUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jeesite.modules.blog.base.enums.EStatus;
+import com.jeesite.modules.blog.base.global.Constants;
+import com.jeesite.modules.blog.base.holder.RequestHolder;
+import com.jeesite.modules.blog.base.serviceImpl.SuperServiceImpl;
 import com.jeesite.modules.blog.commons.entity.Admin;
 import com.jeesite.modules.blog.commons.entity.OnlineAdmin;
 import com.jeesite.modules.blog.commons.entity.Role;
@@ -22,11 +26,8 @@ import com.jeesite.modules.blog.xo.service.RoleService;
 import com.jeesite.modules.blog.xo.service.SysParamsService;
 import com.jeesite.modules.blog.xo.utils.WebUtil;
 import com.jeesite.modules.blog.xo.vo.AdminVO;
-import com.jeesite.modules.blog.base.enums.EStatus;
-import com.jeesite.modules.blog.base.global.Constants;
-import com.jeesite.modules.blog.base.holder.RequestHolder;
-import com.jeesite.modules.blog.base.serviceImpl.SuperServiceImpl;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.Cursor;
@@ -52,7 +53,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @Service
 
 public class AdminServiceImpl extends SuperServiceImpl<AdminMapper, Admin> implements AdminService {
-
+    private static Logger log = LoggerFactory.getLogger(AdminServiceImpl.class);
     @Autowired
     AdminService adminService;
     @Autowired

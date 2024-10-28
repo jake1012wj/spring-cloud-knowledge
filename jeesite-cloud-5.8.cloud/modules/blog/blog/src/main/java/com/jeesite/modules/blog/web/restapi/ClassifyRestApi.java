@@ -1,6 +1,7 @@
 package com.jeesite.modules.blog.web.restapi;
 
 
+import com.jeesite.modules.blog.base.enums.EBehavior;
 import com.jeesite.modules.blog.utils.ResultUtil;
 import com.jeesite.modules.blog.utils.StringUtils;
 import com.jeesite.modules.blog.web.annotion.log.BussinessLog;
@@ -8,11 +9,11 @@ import com.jeesite.modules.blog.web.global.SysConf;
 import com.jeesite.modules.blog.xo.service.BlogService;
 import com.jeesite.modules.blog.xo.service.BlogSortService;
 import com.jeesite.modules.blog.xo.service.TagService;
-import com.jeesite.modules.blog.base.enums.EBehavior;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 @Api(value = "分类相关接口", tags = {"分类相关接口"})
 
 public class ClassifyRestApi {
-
+    private static Logger log = LoggerFactory.getLogger(ClassifyRestApi.class);
     @Autowired
     BlogService blogService;
     @Autowired

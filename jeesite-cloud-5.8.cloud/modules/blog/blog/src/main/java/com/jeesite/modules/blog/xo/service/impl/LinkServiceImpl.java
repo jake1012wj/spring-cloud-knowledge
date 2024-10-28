@@ -3,6 +3,11 @@ package com.jeesite.modules.blog.xo.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jeesite.modules.blog.base.enums.ELinkStatus;
+import com.jeesite.modules.blog.base.enums.EStatus;
+import com.jeesite.modules.blog.base.global.BaseSQLConf;
+import com.jeesite.modules.blog.base.global.Constants;
+import com.jeesite.modules.blog.base.serviceImpl.SuperServiceImpl;
 import com.jeesite.modules.blog.commons.entity.Link;
 import com.jeesite.modules.blog.commons.feign.PictureFeignClient;
 import com.jeesite.modules.blog.utils.CheckUtils;
@@ -18,12 +23,8 @@ import com.jeesite.modules.blog.xo.service.LinkService;
 import com.jeesite.modules.blog.xo.utils.RabbitMqUtil;
 import com.jeesite.modules.blog.xo.utils.WebUtil;
 import com.jeesite.modules.blog.xo.vo.LinkVO;
-import com.jeesite.modules.blog.base.enums.ELinkStatus;
-import com.jeesite.modules.blog.base.enums.EStatus;
-import com.jeesite.modules.blog.base.global.BaseSQLConf;
-import com.jeesite.modules.blog.base.global.Constants;
-import com.jeesite.modules.blog.base.serviceImpl.SuperServiceImpl;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,7 @@ import java.util.*;
 @Service
 
 public class LinkServiceImpl extends SuperServiceImpl<LinkMapper, Link> implements LinkService {
-
+    private static Logger log = LoggerFactory.getLogger(LinkServiceImpl.class);
     @Resource
     private LinkMapper linkMapper;
     @Autowired

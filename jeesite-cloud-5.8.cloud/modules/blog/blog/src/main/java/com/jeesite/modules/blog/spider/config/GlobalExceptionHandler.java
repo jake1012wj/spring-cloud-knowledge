@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.enums.ApiErrorCode;
 import com.baomidou.mybatisplus.extension.exceptions.ApiException;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,7 +25,7 @@ import java.util.Map;
 @RestControllerAdvice
 
 public class GlobalExceptionHandler {
-
+    private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     /**
      * <p>
      * 自定义 REST 业务异常

@@ -2,6 +2,13 @@ package com.jeesite.modules.blog.web.restapi;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.jeesite.modules.blog.base.enums.EOpenStatus;
+import com.jeesite.modules.blog.base.enums.EStatus;
+import com.jeesite.modules.blog.base.exception.ThrowableUtils;
+import com.jeesite.modules.blog.base.global.Constants;
+import com.jeesite.modules.blog.base.holder.RequestHolder;
+import com.jeesite.modules.blog.base.validator.group.GetOne;
+import com.jeesite.modules.blog.base.validator.group.Insert;
 import com.jeesite.modules.blog.commons.entity.SystemConfig;
 import com.jeesite.modules.blog.commons.entity.User;
 import com.jeesite.modules.blog.commons.feign.PictureFeignClient;
@@ -16,17 +23,11 @@ import com.jeesite.modules.blog.xo.service.WebConfigService;
 import com.jeesite.modules.blog.xo.utils.RabbitMqUtil;
 import com.jeesite.modules.blog.xo.utils.WebUtil;
 import com.jeesite.modules.blog.xo.vo.UserVO;
-import com.jeesite.modules.blog.base.enums.EOpenStatus;
-import com.jeesite.modules.blog.base.enums.EStatus;
-import com.jeesite.modules.blog.base.exception.ThrowableUtils;
-import com.jeesite.modules.blog.base.global.Constants;
-import com.jeesite.modules.blog.base.holder.RequestHolder;
-import com.jeesite.modules.blog.base.validator.group.GetOne;
-import com.jeesite.modules.blog.base.validator.group.Insert;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -55,7 +56,7 @@ import java.util.concurrent.TimeUnit;
 @Api(value = "登录管理相关接口", tags = {"登录管理相关接口"})
 
 public class LoginRestApi {
-
+    private static Logger log = LoggerFactory.getLogger(LoginRestApi.class);
     @Autowired
     private RabbitMqUtil rabbitMqUtil;
     @Autowired

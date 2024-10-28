@@ -5,6 +5,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jeesite.modules.blog.base.enums.EGender;
+import com.jeesite.modules.blog.base.enums.ELinkStatus;
+import com.jeesite.modules.blog.base.enums.EOpenStatus;
+import com.jeesite.modules.blog.base.enums.EStatus;
+import com.jeesite.modules.blog.base.exception.ThrowableUtils;
+import com.jeesite.modules.blog.base.exception.exceptionType.InsertException;
+import com.jeesite.modules.blog.base.global.Constants;
+import com.jeesite.modules.blog.base.validator.group.Insert;
+import com.jeesite.modules.blog.base.vo.FileVO;
 import com.jeesite.modules.blog.commons.entity.Feedback;
 import com.jeesite.modules.blog.commons.entity.Link;
 import com.jeesite.modules.blog.commons.entity.SystemConfig;
@@ -21,18 +30,8 @@ import com.jeesite.modules.blog.xo.utils.WebUtil;
 import com.jeesite.modules.blog.xo.vo.FeedbackVO;
 import com.jeesite.modules.blog.xo.vo.LinkVO;
 import com.jeesite.modules.blog.xo.vo.UserVO;
-import com.jeesite.modules.blog.base.enums.EGender;
-import com.jeesite.modules.blog.base.enums.ELinkStatus;
-import com.jeesite.modules.blog.base.enums.EOpenStatus;
-import com.jeesite.modules.blog.base.enums.EStatus;
-import com.jeesite.modules.blog.base.exception.ThrowableUtils;
-import com.jeesite.modules.blog.base.exception.exceptionType.InsertException;
-import com.jeesite.modules.blog.base.global.Constants;
-import com.jeesite.modules.blog.base.validator.group.Insert;
-import com.jeesite.modules.blog.base.vo.FileVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import me.zhyd.oauth.config.AuthConfig;
 import me.zhyd.oauth.exception.AuthException;
 import me.zhyd.oauth.model.AuthCallback;
@@ -43,6 +42,8 @@ import me.zhyd.oauth.request.AuthGithubRequest;
 import me.zhyd.oauth.request.AuthQqRequest;
 import me.zhyd.oauth.request.AuthRequest;
 import me.zhyd.oauth.utils.AuthStateUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -71,6 +72,7 @@ import java.util.concurrent.TimeUnit;
 @Api(value = "第三方登录相关接口", tags = {"第三方登录相关接口"})
 
 public class AuthRestApi {
+    private static Logger log = LoggerFactory.getLogger(AuthRestApi.class);
     @Autowired
     private WebUtil webUtil;
     @Autowired

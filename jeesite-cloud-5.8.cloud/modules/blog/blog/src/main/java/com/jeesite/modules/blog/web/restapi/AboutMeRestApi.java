@@ -1,15 +1,16 @@
 package com.jeesite.modules.blog.web.restapi;
 
 
+import com.jeesite.modules.blog.base.enums.EBehavior;
 import com.jeesite.modules.blog.utils.ResultUtil;
 import com.jeesite.modules.blog.web.annotion.log.BussinessLog;
 import com.jeesite.modules.blog.web.global.SysConf;
 import com.jeesite.modules.blog.xo.service.AdminService;
 import com.jeesite.modules.blog.xo.service.WebConfigService;
-import com.jeesite.modules.blog.base.enums.EBehavior;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "关于我相关接口", tags = {"关于我相关接口"})
 
 public class AboutMeRestApi {
-
+    private static Logger log = LoggerFactory.getLogger(AboutMeRestApi.class);
     @Autowired
     AdminService adminService;
 

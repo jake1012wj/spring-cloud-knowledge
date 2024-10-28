@@ -2,7 +2,8 @@ package com.jeesite.modules.blog.spider.processer;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.fastjson.JSON;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -27,7 +28,7 @@ import java.util.regex.Pattern;
 @Component
 
 public class PictureProcesser implements PageProcessor {
-
+    private static Logger log = LoggerFactory.getLogger(PictureProcesser.class);
     // 获取img标签正则
     private static final String IMGURL_REG = "<(img|IMG)(.*?)>";
     // 获取src路径的正则

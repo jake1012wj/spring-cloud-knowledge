@@ -4,6 +4,15 @@ package com.jeesite.modules.blog.web.restapi;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jeesite.modules.blog.base.enums.*;
+import com.jeesite.modules.blog.base.exception.ThrowableUtils;
+import com.jeesite.modules.blog.base.global.BaseSysConf;
+import com.jeesite.modules.blog.base.global.Constants;
+import com.jeesite.modules.blog.base.holder.RequestHolder;
+import com.jeesite.modules.blog.base.validator.group.Delete;
+import com.jeesite.modules.blog.base.validator.group.GetList;
+import com.jeesite.modules.blog.base.validator.group.GetOne;
+import com.jeesite.modules.blog.base.validator.group.Insert;
 import com.jeesite.modules.blog.commons.entity.*;
 import com.jeesite.modules.blog.commons.feign.PictureFeignClient;
 import com.jeesite.modules.blog.utils.*;
@@ -17,19 +26,11 @@ import com.jeesite.modules.blog.xo.utils.RabbitMqUtil;
 import com.jeesite.modules.blog.xo.utils.WebUtil;
 import com.jeesite.modules.blog.xo.vo.CommentVO;
 import com.jeesite.modules.blog.xo.vo.UserVO;
-import com.jeesite.modules.blog.base.enums.*;
-import com.jeesite.modules.blog.base.exception.ThrowableUtils;
-import com.jeesite.modules.blog.base.global.BaseSysConf;
-import com.jeesite.modules.blog.base.global.Constants;
-import com.jeesite.modules.blog.base.holder.RequestHolder;
-import com.jeesite.modules.blog.base.validator.group.Delete;
-import com.jeesite.modules.blog.base.validator.group.GetList;
-import com.jeesite.modules.blog.base.validator.group.GetOne;
-import com.jeesite.modules.blog.base.validator.group.Insert;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -54,7 +55,7 @@ import java.util.concurrent.TimeUnit;
 @Api(value = "评论相关接口", tags = {"评论相关接口"})
 
 public class CommentRestApi {
-
+    private static Logger log = LoggerFactory.getLogger(CommentRestApi.class);
     @Autowired
     private RedisUtil redisUtil;
     @Autowired

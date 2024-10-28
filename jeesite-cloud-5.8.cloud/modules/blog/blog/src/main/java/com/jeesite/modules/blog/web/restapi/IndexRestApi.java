@@ -1,6 +1,8 @@
 package com.jeesite.modules.blog.web.restapi;
 
 
+import com.jeesite.modules.blog.base.enums.EBehavior;
+import com.jeesite.modules.blog.base.global.Constants;
 import com.jeesite.modules.blog.commons.entity.Link;
 import com.jeesite.modules.blog.commons.entity.Tag;
 import com.jeesite.modules.blog.utils.JsonUtils;
@@ -13,12 +15,11 @@ import com.jeesite.modules.blog.web.global.MessageConf;
 import com.jeesite.modules.blog.web.global.SysConf;
 import com.jeesite.modules.blog.xo.global.RedisConf;
 import com.jeesite.modules.blog.xo.service.*;
-import com.jeesite.modules.blog.base.enums.EBehavior;
-import com.jeesite.modules.blog.base.global.Constants;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 @Api(value = "首页相关接口", tags = {"首页相关接口"})
 
 public class IndexRestApi {
-
+    private static Logger log = LoggerFactory.getLogger(IndexRestApi.class);
     @Autowired
     private TagService tagService;
     @Autowired
