@@ -1,7 +1,7 @@
 package com.jeesite.modules.blog.spider.restapi;
 
+import com.jeesite.modules.blog.picture.spider.PicturePieline;
 import com.jeesite.modules.blog.spider.entity.PictureSpider;
-import com.jeesite.modules.blog.spider.pipeline.PicturePieline;
 import com.jeesite.modules.blog.spider.processer.PictureProcesser;
 import com.jeesite.modules.blog.utils.ResultUtil;
 import io.swagger.annotations.Api;

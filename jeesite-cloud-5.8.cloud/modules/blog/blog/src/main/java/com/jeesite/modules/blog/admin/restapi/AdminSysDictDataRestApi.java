@@ -37,8 +37,8 @@ import java.util.List;
 @RequestMapping("/sysDictData")
 @Api(value = "字典数据相关接口", tags = {"字典数据相关接口"})
 
-public class SysDictDataRestApi {
-    private static Logger log = LoggerFactory.getLogger(SysDictDataRestApi.class);
+public class AdminSysDictDataRestApi {
+    private static Logger log = LoggerFactory.getLogger(AdminSysDictDataRestApi.class);
     @Autowired
     private SysDictDataService sysDictDataService;
 

@@ -17,7 +17,6 @@ import com.jeesite.modules.blog.xo.utils.WebUtil;
 import com.jeesite.modules.blog.xo.vo.UserVO;
 import com.jeesite.modules.blog.base.enums.EStatus;
 import com.jeesite.modules.blog.base.exception.exceptionType.InsertException;
-import com.jeesite.modules.blog.base.exception.exceptionType.QueryException;
 import com.jeesite.modules.blog.base.global.BaseSQLConf;
 import com.jeesite.modules.blog.base.global.Constants;
 import com.jeesite.modules.blog.base.global.ErrorCode;
@@ -40,7 +39,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2018-09-04
  */
 @Service
-public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implements UserService {
+public class XOUserServiceImpl extends SuperServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     WebUtil webUtil;

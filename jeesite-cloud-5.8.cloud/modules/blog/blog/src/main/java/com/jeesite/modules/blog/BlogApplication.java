@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import springfox.documentation.oas.annotations.EnableOpenApi;
+//import springfox.documentation.oas.annotations.EnableOpenApi;
 
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
@@ -27,7 +27,7 @@ import java.util.TimeZone;
 @EnableTransactionManagement
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, RedisAutoConfiguration.class,
         RedisRepositoriesAutoConfiguration.class})
-@EnableOpenApi
+//@EnableOpenApi
 @EnableDiscoveryClient
 @EnableFeignClients("com.jeesite.modules.blog.commons.feign")
 @ComponentScan(basePackages = {

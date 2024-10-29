@@ -33,7 +33,7 @@ import java.util.Set;
  * @since 2018-09-30
  */
 @Service
-public class RoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implements RoleService {
+public class XORoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implements RoleService {
 
     @Autowired
     RedisUtil redisUtil;

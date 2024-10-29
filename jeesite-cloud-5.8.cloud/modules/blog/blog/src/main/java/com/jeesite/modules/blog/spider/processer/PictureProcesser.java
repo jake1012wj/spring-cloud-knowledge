@@ -26,7 +26,6 @@ import java.util.regex.Pattern;
  * @date 2021年1月8日16:47:34
  */
 @Component
-
 public class PictureProcesser implements PageProcessor {
     private static Logger log = LoggerFactory.getLogger(PictureProcesser.class);
     // 获取img标签正则

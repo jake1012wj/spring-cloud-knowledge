@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import springfox.documentation.oas.annotations.EnableOpenApi;
+//import springfox.documentation.oas.annotations.EnableOpenApi;
 
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
@@ -16,7 +16,7 @@ import java.util.TimeZone;
 @EnableScheduling
 @EnableTransactionManagement
 @SpringBootApplication
-@EnableOpenApi
+//@EnableOpenApi
 @EnableDiscoveryClient
 @EnableAsync
 @EnableFeignClients("com.jeesite.modules.blog.commons.feign")

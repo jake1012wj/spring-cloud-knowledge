@@ -54,8 +54,8 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/web/comment")
 @Api(value = "评论相关接口", tags = {"评论相关接口"})
 
-public class CommentRestApi {
-    private static Logger log = LoggerFactory.getLogger(CommentRestApi.class);
+public class WebCommentRestApi {
+    private static Logger log = LoggerFactory.getLogger(WebCommentRestApi.class);
     @Autowired
     private RedisUtil redisUtil;
     @Autowired

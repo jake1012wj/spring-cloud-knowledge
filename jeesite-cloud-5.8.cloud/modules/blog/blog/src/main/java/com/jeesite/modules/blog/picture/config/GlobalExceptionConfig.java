@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
  * @author 陌溪
  * @date 2020年10月4日10:44:17
  */
-@Configuration
-public class GlobalExceptionConfig {
-
-    @Bean
-    public HandlerExceptionResolver getHandlerExceptionResolver() {
-        return new HandlerExceptionResolver();
-    }
-}
+//@Configuration
+//public class GlobalExceptionConfig {
+//
+//    @Bean
+//    public HandlerExceptionResolver getHandlerExceptionResolver() {
+//        return new HandlerExceptionResolver();
+//    }
+//}

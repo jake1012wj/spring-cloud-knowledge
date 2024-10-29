@@ -37,8 +37,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/tag")
 
-public class TagRestApi {
-    private static Logger log = LoggerFactory.getLogger(TagRestApi.class);
+public class AdminTagRestApi {
+    private static Logger log = LoggerFactory.getLogger(AdminTagRestApi.class);
     @Autowired
     private TagService tagService;
 

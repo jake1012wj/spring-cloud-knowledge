@@ -49,11 +49,11 @@ import java.util.concurrent.TimeUnit;
  */
 @RestController
 @RefreshScope
-@RequestMapping("/auth")
+@RequestMapping("/admin/auth")
 @Api(value = "登录相关接口", tags = {"登录相关接口"})
 
-public class LoginRestApi {
-    private static Logger log = LoggerFactory.getLogger(LoginRestApi.class);
+public class AdminLoginRestApi {
+    private static Logger log = LoggerFactory.getLogger(AdminLoginRestApi.class);
     @Autowired
     private WebUtil webUtil;
     @Autowired

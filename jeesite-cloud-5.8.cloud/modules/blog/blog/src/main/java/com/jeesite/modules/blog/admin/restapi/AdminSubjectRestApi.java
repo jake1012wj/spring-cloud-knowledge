@@ -14,7 +14,6 @@ import com.jeesite.modules.blog.base.validator.group.Insert;
 import com.jeesite.modules.blog.base.validator.group.Update;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -33,9 +32,9 @@ import java.util.List;
  */
 @Api(value = "专题相关接口", tags = {"专题相关接口"})
 @RestController
-@RequestMapping("/subject")
+@RequestMapping("/admin/subject")
 
-public class SubjectRestApi {
+public class AdminSubjectRestApi {
 
     @Autowired
     private SubjectService subjectService;

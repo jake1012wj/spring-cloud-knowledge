@@ -32,6 +32,11 @@ eureka:
 #======================================#
 
 spring:
+  autoconfigure:
+    exclude: com.jeesite.autoconfigure.core.MyBatisAutoConfiguration
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   data:
     elasticsearch:
       rest:
@@ -86,6 +91,7 @@ spring:
   main:
     bannerMode: "off"
     allow-bean-definition-overriding: true
+    allow-circular-references: true
     
 # 日志配置
 logging:

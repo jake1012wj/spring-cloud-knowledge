@@ -10,7 +10,6 @@ import com.jeesite.modules.blog.base.enums.EStatus;
 import com.jeesite.modules.blog.base.global.Constants;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,10 +26,10 @@ import java.util.Map;
  * @date 2018年10月22日下午3:27:24
  */
 @RestController
-@RequestMapping("/index")
+@RequestMapping("/adminindex")
 @Api(value = "首页相关接口", tags = {"首页相关接口"})
 
-public class IndexRestApi {
+public class AdminIndexRestApi {
 
     @Autowired
     private BlogService blogService;
