@@ -30,17 +30,17 @@ import java.util.TimeZone;
         RedisRepositoriesAutoConfiguration.class})
 //@EnableOpenApi
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.jeesite.modules.sys", "com.jeesite.modules.blog.commons.feign"})
+@EnableFeignClients(basePackages = {"com.jeesite.modules", "com.jeesite.modules.blog.commons.feign"})
 @ComponentScan(basePackages = {
         "com.jeesite.modules.blog.commons.config.durid",
         "com.jeesite.modules.blog.commons.config.feign",
-        "com.jeesite.modules.blog.commons.handler",
-        "com.jeesite.modules.blog.search",
         "com.jeesite.modules.blog.commons.config.redis",
-        "com.jeesite.modules.blog.utils",
-        "com.jeesite.modules.blog.picture",
         "com.jeesite.modules.blog.commons.config",
         "com.jeesite.modules.blog.commons.fallback",
+        "com.jeesite.modules.blog.commons.handler",
+        "com.jeesite.modules.blog.search",
+        "com.jeesite.modules.blog.utils",
+        "com.jeesite.modules.blog.picture",
         "com.jeesite.modules.blog.admin",
         "com.jeesite.modules.blog.xo.utils",
         "com.jeesite.modules.blog.xo.service",
