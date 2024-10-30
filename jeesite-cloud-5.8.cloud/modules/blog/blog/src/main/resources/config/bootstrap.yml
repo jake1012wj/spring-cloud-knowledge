@@ -5,7 +5,7 @@
 
 server:
 
-  port: 8982
+  port: 8992
     
 #======================================#
 #========== Cloud settings ============#
@@ -46,8 +46,8 @@ spring:
     name: jeesite-cloud-module-blog
 
   # 当前环境名称（注意：不可设置为 test 它是单元测试专用的名称）
-  profiles:
-    active: default
+#  profiles:
+#    active: default
     
   # 分布式配置中心
   cloud:
@@ -96,3 +96,7 @@ spring:
 # 日志配置
 logging:
   config: classpath:config/logback-spring.xml
+  level:
+    com:
+      alibaba:
+        nacos: DEBUG

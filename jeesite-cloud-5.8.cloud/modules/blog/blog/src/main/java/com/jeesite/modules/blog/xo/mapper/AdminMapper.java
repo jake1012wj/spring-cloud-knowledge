@@ -2,6 +2,7 @@ package com.jeesite.modules.blog.xo.mapper;
 
 import com.jeesite.modules.blog.commons.entity.Admin;
 import com.jeesite.modules.blog.base.mapper.SuperMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -29,11 +30,11 @@ import java.util.TimeZone;
         RedisRepositoriesAutoConfiguration.class})
 //@EnableOpenApi
 @EnableDiscoveryClient
-@EnableFeignClients("com.jeesite.modules.blog.commons.feign")
+@EnableFeignClients(basePackages = {"com.jeesite.modules.sys", "com.jeesite.modules.blog.commons.feign"})
 @ComponentScan(basePackages = {
+        "com.jeesite.modules.blog.commons.config.durid",
         "com.jeesite.modules.blog.commons.config.feign",
         "com.jeesite.modules.blog.commons.handler",
-//        "com.jeesite.modules.blog.utils",
         "com.jeesite.modules.blog.search",
         "com.jeesite.modules.blog.commons.config.redis",
         "com.jeesite.modules.blog.utils",
@@ -45,7 +46,7 @@ import java.util.TimeZone;
         "com.jeesite.modules.blog.xo.service",
         "com.jeesite.modules.blog.sms",
 })
-public class BlogApplication {
+public class BlogApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone("Asia/Shanghai"));
         /**
